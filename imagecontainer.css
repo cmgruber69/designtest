@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    width: 100%; /* garante que o container ocupe toda a largura */
+    margin: 5px;
+}
+
+.item-10 {
+    flex: 0 0 10%;   /* largura fixa de 10% */
+    background: lightblue;
+}
+
+.item-100 {
+    flex: 0 0 100px;   /* largura fixa de 100 */
+    background: lightblue;
+}
+
+.item-full {
+    flex: 1 1 auto;   /* cresce para preencher todo o espaço */
+    background: lightgray;
+    text-align: right;
+}
+
+/* Exemplo de classe para um contêiner de imagem quadrado (1:1) */
+.imagem-container {
+    width: 100%; /* Largura total do contêiner pai */
+    aspect-ratio: 1 / 1; /* Define a proporção 1 para 1 (Quadrado) */
+    position: relative; /* Necessário para posicionar a imagem internamente */
+    overflow: hidden; /* Opcional: Recorta partes da imagem que ultrapassem a proporção */
+}
+
+/* Exemplo de classe para um contêiner de imagem paisagem (4:3) */
+.imagem-paisagem {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+}
+
+.imagem-container > img {
+    /* Define o posicionamento e o tamanho da imagem */
+    width: 100%;
+    height: 100%;
+    
+    /* Esta é a propriedade crítica para evitar distorção e padronizar o visual */
+    object-fit: cover;
+    
+    /* Opcional: Define de onde o corte deve começar/terminar */
+    object-position: 100% 50%;
+}
+
+.imagem-paisagem > img {
+    /* Define o posicionamento e o tamanho da imagem */
+    width: 100%;
+    height: 100%;
+    
+    /* Esta é a propriedade crítica para evitar distorção e padronizar o visual */
+    object-fit: cover;
+    
+    /* Opcional: Define de onde o corte deve começar/terminar */
+    object-position: center; 
+}
