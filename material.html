@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Site Responsivo</title>
+ <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Logo / Marca</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Bem-vindo</h2>
+      <p>
+        Este é um exemplo de layout responsivo mobile-first com boas práticas
+        de estrutura e espaçamento.
+      </p>
+    </section>
+
+    <section>
+      <h2>Exemplo Material Design - Google</h2>
+      <p>
+       <div class="material-input-container">
+          <input type="text" id="meuInput" placeholder=" " class="material-input" />
+          <label for="meuInput" class="material-label">Meu Rótulo Flutuante</label>
+          <div class="material-border"></div>
+      </div>
+      </p>
+    </section>
+
+     <section>
+      <h2>Exemplo Material Design - Google</h2>
+      <p>
+      <div class="material-input-container">
+        <select id="meuSelect" @bind="@SelectedValue" class="material-input" @onfocus="SetFocus" @onblur="RemoveFocus">
+          <option value="">Selecione uma Opção</option>
+          <option value="1">Opção Um</option>
+          <option value="2">Opção Dois</option>
+          <option value="3">Opção Três</option>
+        </select>
+
+        <label for="meuSelect" class="material-label @FloatingClass">Selecione uma Opção</label>
+      <div class="material-border"></div>
+      </div>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

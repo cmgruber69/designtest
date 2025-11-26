@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    width: 100%; /* garante que o container ocupe toda a largura */
+    margin: 5px;
+}
+
+.item-10 {
+    flex: 0 0 10%;   /* largura fixa de 10% */
+    background: lightblue;
+}
+
+.item-20 {
+    flex: 0 0 20%;   /* largura fixa de 20% */
+    background: lightgreen;
+}
+
+.item-rest {
+    flex: 1 1 0;     /* ocupa automaticamente o restante se nao tiver outro elemento ocupa tudo */
+    background: lightcoral;
+}
+
+.item-1 {
+    flex: 1 1 1;
+    background: lightsalmon;
+}
+
+.item-full {
+    flex: 1 1 auto;   /* cresce para preencher todo o espaço */
+    background: lightgray;
+    text-align: right;
+}

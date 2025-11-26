@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boats for Sale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #1e90ff;
+            margin-bottom: 30px;
+        }
+        .boat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .boat-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .boat-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .boat-card h2 {
+            color: #333;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .price {
+            color: #2e8b57;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Boats for Sale</h1>
+        <div class="boat-grid">
+            <!-- Boat 1 -->
+            <div class="boat-card">
+                <img src="https://www.eboat.com.br/img/29947/29947-7751-20252124041-1-p.jpg" alt="Boat 1">
+                <h2>Sea Explorer 3000</h2>
+                <p class="description">Luxury yacht perfect for family adventures. Features 3 cabins and modern navigation system.</p>
+                <p class="price">$125,000</p>
+            </div>
+
+            <!-- Boat 2 -->
+            <div class="boat-card">
+                <img src="https://www.eboat.com.br/img/26933/26933-26466-2024417596-1-p.jpg" alt="Boat 2">
+                <h2>Wave Runner</h2>
+                <p class="description">Speed boat ideal for water sports. Excellent condition, only 50 hours used.</p>
+                <p class="price">$45,000</p>
+            </div>
+
+            <!-- Boat 3 -->
+            <div class="boat-card">
+                <img src="https://www.eboat.com.br/img/25099/25099-25272-2023117420-1-p.jpg" alt="Boat 3">
+                <h2>Ocean Master</h2>
+                <p class="description">Fishing boat with large deck space and top-grade equipment.</p>
+                <p class="price">$78,000</p>
+            </div>
+
+            <!-- Boat 4 -->
+            <div class="boat-card">
+                <img src="https://www.eboat.com.br/img/28291/28291-14370-20247302229-1-p.jpg" alt="Boat 4">
+                <h2>Blue Horizon</h2>
+                <p class="description">Sailboat with classic design, perfect for coastal cruising.</p>
+                <p class="price">$95,000</p>
+            </div>
+
+            <!-- Boat 5 -->
+            <div class="boat-card">
+                <img src="https://www.eboat.com.br/img/29980/29980-27800-202522561-1-p.jpg" alt="Boat 5">
+                <h2>Aqua Venture</h2>
+                <p class="description">Compact cabin cruiser great for weekend getaways.</p>
+                <p class="price">$32,000</p>
+            </div>
+
+            <!-- Boat 6 -->
+            <div class="boat-card">
+                <img src="https://www.eboat.com.br/img/29811/29811-27728-2025124937-1-p.jpg" alt="Boat 6">
+                <h2>Captain's Pride</h2>
+                <p class="description">Spacious motor yacht with luxury amenities and low mileage.</p>
+                <p class="price">$185,000</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

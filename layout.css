@@ -1,0 +1,89 @@
+/* ------------------------------
+   Base
+------------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background-color: #fafafa;
+}
+
+/* ------------------------------
+   Estrutura semântica
+------------------------------ */
+header, footer {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+header .container,
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 12px;
+}
+
+header h1 {
+  font-size: 1.25rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+main {
+  /* MOBILE FIRST */
+  width: 100%;
+  padding-inline: 12px; /* Espaço interno nas laterais no mobile */
+  margin-inline: auto;
+  padding-block: 24px;
+}
+
+/* Limita largura do conteúdo */
+main > section {
+  margin-bottom: 32px;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding-block: 16px;
+}
+
+/* ------------------------------
+   Responsivo (Desktop)
+------------------------------ */
+@media (min-width: 1200px) {
+  main {
+    max-width: 1200px;
+    padding-inline: 0; /* Remove o padding lateral */
+  }
+
+  header .container,
+  footer .container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+}

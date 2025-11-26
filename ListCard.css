@@ -1,0 +1,155 @@
+/* Base Mobile-First (Card View - Padrão) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Esconde o botão de controle no mobile */
+.controles-desktop {
+    display: none;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 1. Container Principal (O Flex Container) */
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Essencial para permitir que os itens quebrem a linha */
+    justify-content: center; /* Centraliza os itens */
+    padding: 1rem;
+    gap: 1rem; /* Espaçamento entre os itens */
+}
+
+/* 2. Estilo do Card (Item Individual - Mobile) */
+.product-item {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* No Mobile (Card View): Ocupa 100% da largura do container */
+    width: 100%; 
+    max-width: 400px; /* Limite de largura para cards em telas muito grandes no mobile */
+    
+    /* Flexbox interno para o conteúdo do Card */
+    display: flex;
+    flex-direction: column; /* Imagem e detalhes empilhados */
+    align-items: center;
+    text-align: center;
+}
+
+.product-image-container img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.product-details {
+    width: 100%;
+}
+
+/* (O restante dos estilos de texto e botão do produto são iguais ao exemplo anterior) */
+.product-title {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* --- Media Query para Desktop (a partir de 768px) --- */
+@media (min-width: 768px) {
+    /* Exibe o botão de controle no desktop */
+    .controles-desktop {
+        display: block;
+    }
+    
+    /* Layout Padrão de Cards para Desktop */
+    .product-container {
+        justify-content: flex-start; /* Alinha os itens à esquerda na grade */
+    }
+
+    /* Define a largura para 3 colunas (Card View) */
+    .product-container:not(.list-view) .product-item {
+        /* (100% - 2*gap) / 3 = cerca de 32.33% */
+        width: calc(33.333% - 1rem); 
+        /* Mantém o estilo de card: imagem em cima, detalhes embaixo */
+        flex-direction: column; 
+    }
+    
+    /* Ajuste para 4 colunas em telas muito grandes */
+    @media (min-width: 1200px) {
+        .product-container:not(.list-view) .product-item {
+            /* (100% - 3*gap) / 4 = cerca de 24.25% */
+            width: calc(25% - 0.75rem); /* Ajuste o cálculo de gap */
+        }
+    }
+
+    /* --- Estilo de Lista para Desktop (ativado via JS) --- */
+
+    /* Altera o Flex Container para Lista (1 coluna) */
+    .product-container.list-view {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    /* Estilo de Item da Lista (List View) */
+    .product-container.list-view .product-item {
+        width: 100%; /* Ocupa a largura total da coluna */
+        flex-direction: row; /* Imagem e detalhes lado a lado */
+        align-items: center;
+        text-align: left;
+        padding: 1.5rem 3rem;
+    }
+
+    .product-container.list-view .product-image-container {
+        flex-shrink: 0; 
+        margin-right: 1.5rem;
+    }
+
+    .product-container.list-view .product-image-container img {
+        max-width: 100px; /* Imagem menor na lista */
+        margin-bottom: 0;
+    }
+    
+    .product-container.list-view .product-details {
+        display: flex; /* Alinha título, preço e botão na mesma linha */
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-grow: 1; 
+    }
+
+    /* Definindo a proporção das colunas internas na List View */
+    .product-container.list-view .product-title {
+        flex-basis: 40%; 
+        margin: 0;
+    }
+
+    .product-container.list-view .product-price {
+        flex-basis: 20%;
+        margin: 0;
+    }
+
+    .product-container.list-view .add-to-cart {
+        width: auto; 
+        flex-basis: 20%;
+    }
+}

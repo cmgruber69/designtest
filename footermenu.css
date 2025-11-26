@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* controla o espaço entre colunas */
+  background-color: #222;
+  padding: 20px;
+}
+
+.footer-column {
+  flex: 1 1 calc(50% - 20px); /* mobile: 2 colunas */
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-column a:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* Desktop: 4 colunas */
+@media (min-width: 768px) {
+  .footer-column {
+    flex: 1 1 calc(25% - 20px); /* desktop: 4 colunas */
+  }
+}

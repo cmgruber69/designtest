@@ -1,0 +1,37 @@
+body {
+display: flex;
+flex-direction: column;
+}
+
+.product-list {
+  width: 80%;              /* largura total da listagem */
+  margin: 20px auto;       /* centraliza na tela */
+  font-family: Arial, sans-serif;
+}
+
+.product-row {
+  display: flex;           /* ativa flexbox */
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  align-items: center;     /* alinha verticalmente */
+}
+
+.product-id {
+  flex: 0 0 10%;           /* ocupa 10% fixo */
+  font-weight: bold;
+}
+
+.product-name {
+  flex: 0 0 70%;           /* ocupa 70% fixo */
+  padding-left: 10px;
+}
+
+.product-actions {
+  flex: 0 0 20%;           /* ocupa 20% fixo */
+  text-align: right;       /* botão alinhado à direita */
+}
+
+.product-actions button {
+  padding: 5px 10px;
+  cursor: pointer;
+}

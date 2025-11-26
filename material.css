@@ -1,0 +1,65 @@
+/* --- 1. Configuração do Container e Input Base --- */
+
+.material-input-container {
+    position: relative; /* Essencial para o posicionamento absoluto do label e da borda */
+    margin-top: 15px; /* Espaço para o label flutuar acima */
+    padding-top: 5px;
+    width: 300px; /* Largura do seu campo */
+}
+
+.material-input {
+    width: 100%;
+    padding: 16px 12px 6px 12px; /* Espaçamento interno */
+    font-size: 16px;
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove o contorno de foco do navegador */
+    background: transparent;
+    z-index: 2; /* Garante que o input está acima da borda */
+}
+
+/* --- 2. O Rótulo (Label) em Estado Normal --- */
+
+.material-label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente o label */
+    color: #6c6c6c; /* Cor do texto em estado normal */
+    font-size: 16px;
+    pointer-events: none; /* Permite clicar no input através do label */
+    transition: all 0.2s ease-out; /* Habilita a animação suave */
+    z-index: 3;
+    padding: 0 4px; /* Adiciona padding para 'cortar' a borda quando flutua */
+}
+
+/* --- 3. A Borda Contornada (Outlined) --- */
+
+.material-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #9e9e9e; /* Borda cinza clara normal */
+    border-radius: 4px;
+    pointer-events: none;
+    transition: border-color 0.2s ease-out;
+    z-index: 1;
+}
+
+/* --- 4. Estados de Foco e Preenchido (A Magia da Flutuação) --- */
+
+/* Flutua o label quando o input está com foco OU o placeholder não está visível (ou seja, está preenchido) */
+.material-input:focus + .material-label,
+.material-input:not(:placeholder-shown) + .material-label {
+    top: 0;
+    transform: translateY(-50%) scale(0.75); /* Move para cima e diminui */
+    background-color: white; /* Cobre a linha da borda para parecer que foi 'cortada' */
+    color: #3f51b5; /* Cor primária do Material Design (azul) */
+}
+
+/* Efeito de Foco na Borda */
+.material-input:focus ~ .material-border {
+    border-color: #3f51b5; /* Cor primária do Material Design (azul) */
+    border-width: 2px; /* Torna a borda mais grossa */
+}
