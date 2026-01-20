@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+:root {
+  --primary-color: #004A99; /* Exemplo de azul eboat */
+  --text-dark: #333;
+  --text-light: #666;
+  --bg-card: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.eboat-menu-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eboat-grid {
+  display: grid;
+  gap: 16px;
+  /* Mobile: 2 colunas */
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.eboat-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.eboat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.eboat-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.eboat-title {
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.eboat-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+/* Desktop: 4 colunas em linha */
+@media (min-width: 768px) {
+  .eboat-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .eboat-card {
+    padding: 30px 20px;
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+<section class="eboat-menu-container">
+  <div class="eboat-grid">
+    
+    <a href="#" class="eboat-card">
+      <div class="eboat-icon">⚓</div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Minha Frota</h3>
+        <p class="eboat-desc">Gerencie suas embarcações e disponibilidades.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-card">
+      <div class="eboat-icon">📅</div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Reservas</h3>
+        <p class="eboat-desc">Acompanhe seus agendamentos e solicitações.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-card">
+      <div class="eboat-icon">💰</div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Ganhos</h3>
+        <p class="eboat-desc">Relatórios detalhados dos seus rendimentos.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-card">
+      <div class="eboat-icon">👤</div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Perfil</h3>
+        <p class="eboat-desc">Atualize seus dados e documentos de segurança.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+    
+
+
+</body>
+</html> 

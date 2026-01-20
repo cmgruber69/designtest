@@ -14,6 +14,7 @@ flex-direction: column;
   border-bottom: 1px solid #ccc;
   padding: 10px;
   align-items: center;     /* alinha verticalmente */
+  gap: 5px;
 }
 
 .product-id {
@@ -24,11 +25,13 @@ flex-direction: column;
 .product-name {
   flex: 0 0 70%;           /* ocupa 70% fixo */
   padding-left: 10px;
+  background-color: lightgray;
 }
 
 .product-actions {
   flex: 0 0 20%;           /* ocupa 20% fixo */
   text-align: right;       /* botão alinhado à direita */
+  background-color: blue;
 }
 
 .product-actions button {

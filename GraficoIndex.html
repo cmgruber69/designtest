@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <style>
+    :root {
+  --primary-green: #27ae60;
+  --primary-red: #eb5757;
+  --bg-light: #f4f7f6;
+}
+
+.index-container {
+  font-family: 'Inter', sans-serif;
+  max-width: 300px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.chart-wrapper {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.gradient-column {
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(to top, var(--primary-red), #f1c40f, var(--primary-green));
+  border-radius: 20px;
+  position: relative;
+  border: 2px solid #eee;
+}
+
+.label {
+  position: absolute;
+  left: 50px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+}
+
+.top { top: 0; }
+.bottom { bottom: 0; }
+
+.star {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  bottom: 0%; /* Valor dinâmico via JS */
+}
+
+.index-value {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #333;
+}
+   </style>
+
+   <script>
+    function updateIndexChart(valor, dias) {
+  // Cálculo do Index
+  const index = valor / dias;
+  
+  // Definição de limites (Baseado no seu cenário)
+  // Max Index (Melhor): 1000/1 = 1000 (Exemplo hipotético)
+  // Min Index (Pior): 100/120 = 0.83
+  const minIndex = 0.83; 
+  const maxIndex = 10.0; // Ajuste este teto conforme a realidade do seu negócio
+  
+  // Normalização para porcentagem (0 a 100)
+  let percentage = ((index - minIndex) / (maxIndex - minIndex)) * 100;
+  
+  // Garante que a estrela não saia dos limites visuais
+  percentage = Math.min(Math.max(percentage, 0), 100);
+  
+  // Atualiza a UI
+  const star = document.getElementById('star-marker');
+  const display = document.getElementById('current-index');
+  
+  star.style.bottom = `${percentage}%`;
+  display.innerText = index.toFixed(2);
+}
+
+// Exemplo de uso: Valor R$ 500 em 30 dias
+updateIndexChart(500, 30);
+   </script>
+</head>
+<body>
+
+    <div class="index-container">
+  <h3>Performance do seu Plano</h3>
+  <div class="chart-wrapper">
+    <div class="gradient-column">
+      <span class="label top">Melhor Index</span>
+      <span class="label bottom">Pior Index</span>
+      
+      <div id="star-marker" class="star">⭐</div>
+    </div>
+  </div>
+  
+  <div class="index-value">
+    Seu Index: <strong id="current-index">0.00</strong>
+  </div>
+</div>
+
+
+</body>
+</html> 

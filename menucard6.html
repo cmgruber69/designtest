@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    .eboat-tools-section {
+  padding: 40px 15px;
+  background-color: #ffffff;
+}
+
+.eboat-grid {
+  display: grid;
+  gap: 12px; /* Gap menor no mobile para caber 2 por linha */
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 2x2x2 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eboat-tool-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 12px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #eef2f6;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.eboat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: #f0f7ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.eboat-icon-wrapper span {
+  color: #004A99;
+  font-size: 24px;
+}
+
+.eboat-title {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.eboat-desc {
+  font-size: 0.8rem;
+  color: #777;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a 2 linhas para manter o alinhamento */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Hover */
+.eboat-tool-card:hover {
+  border-color: #004A99;
+  box-shadow: 0 8px 20px rgba(0, 74, 153, 0.1);
+}
+
+/* Tablet: 3 colunas */
+@media (min-width: 600px) {
+  .eboat-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Desktop: 3 ou 6 colunas dependendo da largura */
+@media (min-width: 992px) {
+  .eboat-tool-card {
+    padding: 30px 20px;
+  }
+  
+  .eboat-title {
+    font-size: 1.1rem;
+  }
+}
+
+</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <section class="eboat-tools-section">
+  <div class="eboat-grid">
+    
+    <a href="#" class="eboat-tool-card">
+      <div class="eboat-icon-wrapper"><span class="material-icons">sell</span></div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Preço de Usados</h3>
+        <p class="eboat-desc">Consulte valores médios de mercado para compra e venda.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-tool-card">
+      <div class="eboat-icon-wrapper"><span class="material-icons">bar_chart</span></div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Dados do Setor</h3>
+        <p class="eboat-desc">Estatísticas reais sobre as marcas mais valorizadas.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-tool-card">
+      <div class="eboat-icon-wrapper"><span class="material-icons">menu_book</span></div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Glossário</h3>
+        <p class="eboat-desc">Termos náuticos explicados de forma simples.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-tool-card">
+      <div class="eboat-icon-wrapper"><span class="material-icons">compare_arrows</span></div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Comparador</h3>
+        <p class="eboat-desc">Compare fichas técnicas de até 3 embarcações.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-tool-card">
+      <div class="eboat-icon-wrapper"><span class="material-icons">fact_check</span></div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Checklist Vistoria</h3>
+        <p class="eboat-desc">O que verificar antes de comprar um barco usado.</p>
+      </div>
+    </a>
+
+    <a href="#" class="eboat-tool-card">
+      <div class="eboat-icon-wrapper"><span class="material-icons">calculate</span></div>
+      <div class="eboat-content">
+        <h3 class="eboat-title">Custo de Posse</h3>
+        <p class="eboat-desc">Calcule gastos com marina, seguro e manutenção.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+    
+
+
+</body>
+</html> 

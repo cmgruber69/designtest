@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Footer Menu Grid</title>
+    <style>
+      .eboat-footer {
+  background-color: #f8f9fa; /* Cor neutra para o fundo */
+  padding: 40px 20px;
+  width: 100%;
+  /* Define uma altura mínima para evitar CLS enquanto o conteúdo carrega */
+  min-height: 300px; 
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* Desktop: 4 colunas iguais */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #003366; /* Azul eboat */
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 12px;
+}
+
+.footer-list a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.3s ease;
+  /* Aumenta a área de toque para mobile */
+  display: inline-block;
+  padding: 4px 0; 
+}
+
+.footer-list a:hover {
+  color: #007bff;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    /* Mobile: 2 colunas com 2 linhas cada automaticamente */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+  
+  .eboat-footer {
+    min-height: 500px; /* Ajuste para a altura maior no mobile */
+  }
+}
+    </style>
+</head>
+<body>
+    <main>
+        
+        <footer class="eboat-footer">
+  <div class="footer-container">
+    <nav class="footer-column">
+      <h3 class="footer-title">A eboat</h3>
+      <ul class="footer-list">
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Como funciona</a></li>
+        <li><a href="#">Trabalhe conosco</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-column">
+      <h3 class="footer-title">Aluguel</h3>
+      <ul class="footer-list">
+        <li><a href="#">Lanchas</a></li>
+        <li><a href="#">Veleiros</a></li>
+        <li><a href="#">Jet Skis</a></li>
+        <li><a href="#">Destinos</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-column">
+      <h3 class="footer-title">Suporte</h3>
+      <ul class="footer-list">
+        <li><a href="#">Central de Ajuda</a></li>
+        <li><a href="#">Segurança</a></li>
+        <li><a href="#">Cancelamento</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-column">
+      <h3 class="footer-title">Legal</h3>
+      <ul class="footer-list">
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Seguro Náutico</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+    </main>
+
+   
+</body>
+</html>

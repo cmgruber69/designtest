@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+   
+   /* Container e Grid */
+.eboat-tools-section {
+  padding: 30px 15px;
+  background-color: #ffffff;
+}
+
+.eboat-grid-6 {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 2x2x2 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card Base */
+.eboat-mini-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 10px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  transition: all 0.25s ease;
+}
+
+.eboat-mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  border-color: #d1d1d1;
+}
+
+/* Ícones e Cores Categóricas (Estilo Minimalista) */
+.mini-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.mini-icon span { font-size: 22px; }
+
+/* Paleta Suave (Pastel) */
+.icon-precos   { background-color: #e8f5e9; color: #2e7d32; }
+.icon-dados    { background-color: #e3f2fd; color: #1565c0; }
+.icon-glossario { background-color: #f5f5f5; color: #616161; }
+.icon-comparar  { background-color: #f3e5f5; color: #7b1fa2; }
+.icon-vistoria  { background-color: #fff8e1; color: #f9a825; }
+.icon-custos    { background-color: #ffebee; color: #c62828; }
+
+/* Textos */
+.mini-title {
+  font-size: 0.85rem;
+  color: #222;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.mini-desc {
+  font-size: 0.72rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .eboat-grid-6 { grid-template-columns: repeat(3, 1fr); } /* Tablet: 3x2 */
+}
+
+@media (min-width: 1024px) {
+  .eboat-grid-6 { grid-template-columns: repeat(6, 1fr); } /* Desktop: 6 em linha */
+  
+  .mini-title { font-size: 0.9rem; }
+}
+
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+ <section class="eboat-tools-section">
+  <div class="eboat-grid-6">
+    
+    <a href="#" class="eboat-mini-card">
+      <div class="mini-icon icon-precos"><span class="material-icons">sell</span></div>
+      <h3 class="mini-title">Preços</h3>
+      <p class="mini-desc">Valores de mercado</p>
+    </a>
+
+    <a href="#" class="eboat-mini-card">
+      <div class="mini-icon icon-dados"><span class="material-icons">bar_chart</span></div>
+      <h3 class="mini-title">Dados</h3>
+      <p class="mini-desc">Estatísticas do setor</p>
+    </a>
+
+    <a href="#" class="eboat-mini-card">
+      <div class="mini-icon icon-glossario"><span class="material-icons">menu_book</span></div>
+      <h3 class="mini-title">Glossário</h3>
+      <p class="mini-desc">Termos náuticos</p>
+    </a>
+
+    <a href="#" class="eboat-mini-card">
+      <div class="mini-icon icon-comparar"><span class="material-icons">compare_arrows</span></div>
+      <h3 class="mini-title">Comparar</h3>
+      <p class="mini-desc">Fichas técnicas</p>
+    </a>
+
+    <a href="#" class="eboat-mini-card">
+      <div class="mini-icon icon-vistoria"><span class="material-icons">fact_check</span></div>
+      <h3 class="mini-title">Vistoria</h3>
+      <p class="mini-desc">Checklist de compra</p>
+    </a>
+
+    <a href="#" class="eboat-mini-card">
+      <div class="mini-icon icon-custos"><span class="material-icons">calculate</span></div>
+      <h3 class="mini-title">Custos</h3>
+      <p class="mini-desc">Gastos mensais</p>
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html> 
