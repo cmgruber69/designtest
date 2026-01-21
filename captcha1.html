@@ -1,0 +1,159 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    .eboat-form {
+  max-width: 500px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  padding: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Estilização do Bloco Captcha */
+.captcha-container {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  padding: 25px; /* Aumentei o padding para dar mais respiro */
+  margin: 25px 0;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.captcha-content {
+  display: flex;
+  flex-direction: column; /* Coloca um em cima do outro para dispositivos móveis */
+  align-items: center;    /* Centraliza os itens */
+  gap: 20px;              /* Espaço entre o código e o input */
+  width: 100%;
+  max-width: 300px;       /* Limita a largura para não espalhar demais em telas grandes */
+}
+
+@media (min-width: 480px) {
+  .captcha-content {
+    flex-direction: row;  /* Em telas maiores, ficam lado a lado */
+    justify-content: space-around; /* Espalha os elementos pelo fieldset */
+  }
+}
+
+.captcha-display {
+  display: flex;
+  gap: 10px;
+}
+
+.captcha-code {
+  background: #4f46e5;
+  color: white;
+  width: 40px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: rotate(-3deg); /* Um leve toque de design para parecer "gerado" */
+}
+
+.captcha-code:last-child {
+  transform: rotate(3deg); /* Inverte a rotação no segundo número */
+}
+
+.captcha-input-wrapper {
+  text-align: center;
+}
+
+#captcha {
+  width: 80px;
+  height: 45px;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #4f46e5;
+  border-radius: 8px;
+}
+
+/* Botões */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-primary { background-color: #4f46e5; color: white; }
+.btn-secondary { background-color: #e5e7eb; color: #4b5563; }
+
+button:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<form class="eboat-form">
+  <h2>Envie sua Mensagem</h2>
+  
+  <div class="input-group">
+    <label for="nome">Nome Completo</label>
+    <input type="text" id="nome" placeholder="Como podemos te chamar?" required>
+  </div>
+
+  <div class="input-group">
+    <label for="email">E-mail</label>
+    <input type="email" id="email" placeholder="seu@email.com" required>
+  </div>
+
+  <div class="input-group">
+    <label for="mensagem">Mensagem</label>
+    <textarea id="mensagem" rows="4" placeholder="Como podemos ajudar?"></textarea>
+  </div>
+
+  <fieldset class="captcha-container">
+  <legend>Verificação de Segurança</legend>
+  <div class="captcha-content">
+    <div class="captcha-display">
+      <span class="captcha-code">5</span>
+      <span class="captcha-code">9</span>
+    </div>
+    
+    <div class="captcha-input-wrapper">
+      <label for="captcha">Confirme os números:</label>
+      <input type="text" id="captcha" maxlength="2" placeholder="00" required>
+    </div>
+  </div>
+</fieldset>
+
+  <div class="form-actions">
+    <button type="button" class="btn-secondary">Cancelar</button>
+    <button type="submit" class="btn-primary">Enviar Mensagem</button>
+  </div>
+</form>
+
+</body>
+</html> 
