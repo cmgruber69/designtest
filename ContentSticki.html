@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta de Layout - Conteúdo e Tutorial</title>
+    <title>Eboat - Página de Conteúdo</title>
     <style>
         :root {
             --max-width: 1200px;
             --sidebar-width: 300px;
-            --content-width: 680px; /* Largura ideal para ~60-75 caracteres */
-            --bg-color: #fcfcfc;
-            --text-color: #2c3e50;
-            --accent-color: #3498db;
-            --ad-bg: #f0f0f0;
+            /* Largura para ~60 caracteres com fonte 18px-20px */
+            --content-max-width: 680px; 
+            --bg-color: #F8F9FA;
+            --text-color: #212529;
+            --accent: #0056b3;
+            --ad-bg: #E9ECEF;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.65; /* Altura de linha para conforto visual */
-            color: var(--text-color);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-color);
-            -webkit-font-smoothing: antialiased;
+            color: var(--text-color);
+            line-height: 1.65; /* Conforto visual para textos longos */
         }
 
+        /* Container de 1200px centralizado */
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -36,85 +33,92 @@
         }
 
         header {
-            padding: 40px 0;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 40px;
+            padding: 40px 0 20px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.75rem;
+            max-width: 900px;
             line-height: 1.2;
-            color: #1a1a1a;
+            margin-bottom: 20px;
         }
 
-        /* Layout Grid Desktop */
-        .main-wrapper {
-            display: grid;
-            grid-template-columns: var(--sidebar-width) 1fr;
-            gap: 60px;
-            align-items: start;
+        /* Grid Principal - Mobile First (Layout em Bloco) */
+        .layout-grid {
+            display: block;
         }
 
-        /* Bloco de Anúncio Fixo */
-        .sidebar-ad {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 20px;
-            width: var(--sidebar-width);
-            height: 600px;
+        /* Coluna do Anúncio - Mobile First (sem sticky) */
+        .ad-sidebar {
+            position: static;
+            width: 100%;
+            height: 250px;
             background: var(--ad-bg);
-            border: 1px dashed #ccc;
+            border: 1px solid #dee2e6;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 0.9rem;
-            color: #888;
+            margin-bottom: 2rem;
         }
 
         /* Coluna de Texto */
-        .content-area {
-            max-width: var(--content-width); /* Garante os ~60 caracteres */
+        .article-body {
+            max-width: 100%;
         }
 
-        .content-area p {
+        .article-body p {
             margin-bottom: 1.5rem;
-            font-size: 1.15rem; /* Tamanho ideal para leitura longa */
+            font-size: 1rem;
         }
 
-        .content-area h2 {
-            margin: 2rem 0 1rem;
-            font-size: 1.8rem;
-        }
-
-        .tutorial-step {
-            background: white;
-            padding: 25px;
-            border-left: 4px solid var(--accent-color);
+        .tutorial-box {
+            background: #fff;
+            padding: 1.5rem;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        /* Responsividade Mobile */
-        @media (max-width: 992px) {
-            .main-wrapper {
-                display: block; /* Empilha no mobile */
-                width: 100%;
+        /* Desktop - min-width: 993px */
+        @media (min-width: 993px) {
+            header {
+                padding: 60px 0 30px;
             }
 
-            .sidebar-ad {
-                position: static; /* Remove o fixo no mobile */
-                width: 100%;
-                height: 250px;
-                margin-bottom: 30px;
-            }
-
-            .content-area {
-                max-width: 100%; /* Texto ocupa a largura disponível */
-            }
-            
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            /* Grid Principal para Desktop */
+            .layout-grid {
+                display: grid;
+                grid-template-columns: var(--sidebar-width) 1fr;
+                gap: 60px;
+                align-items: start;
+            }
+
+            /* Coluna do Anúncio - Desktop (Sticky) */
+            .ad-sidebar {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 20px;
+                width: var(--sidebar-width);
+                height: 600px;
+                margin-bottom: 0;
+            }
+
+            /* Coluna de Texto */
+            .article-body {
+                max-width: var(--content-max-width);
+            }
+
+            .article-body p {
+                font-size: 1.15rem;
+            }
+
+            .tutorial-box {
+                padding: 2rem;
             }
         }
     </style>
@@ -122,56 +126,55 @@
 <body>
 
     <header class="container">
-        <h1>Como construir um layout profissional focado em legibilidade</h1>
+        <h1>Título do Tutorial ou Artigo Extenso do Eboat</h1>
     </header>
 
     <main class="container">
-        <div class="main-wrapper">
+        <div class="layout-grid">
+            
             <!-- Bloco de Anúncio -->
-            <aside class="sidebar-ad">
-                <div>
-                    <p>ANÚNCIO PUBLICITÁRIO</p>
-                    <small>Espaço fixo no Desktop<br>Topo no Mobile</small>
-                </div>
+            <aside class="ad-sidebar">
+                <p>Espaço para Anúncio<br>(300x600 px)</p>
             </aside>
 
-            <!-- Área de Conteúdo -->
-            <article class="content-area">
+            <!-- Área de Leitura -->
+            <article class="article-body">
                 <p>
-                    O segredo de um bom webdesign não está apenas na estética, mas na ergonomia. 
-                    Quando limitamos a linha a aproximadamente 60 caracteres, reduzimos o esforço 
-                    que o pescoço e os olhos fazem para voltar ao início da próxima linha.
+                    Este parágrafo foi configurado para não exceder a largura ideal de leitura. 
+                    Ao manter a linha curta, o usuário não perde o foco ao mover os olhos 
+                    da direita para a esquerda ao iniciar uma nova linha.
                 </p>
 
-                <div class="tutorial-step">
-                    <h2>Passo 1: Configurar a largura</h2>
-                    <p>Utilize um container de 1200px para manter o equilíbrio visual. Isso evita que seu conteúdo pareça "esticado" em monitores grandes.</p>
+                <div class="tutorial-box">
+                    <h2>Passo Prático</h2>
+                    <p>Ao implementar o scroll no lado direito, você garante que o usuário 
+                    possa consumir conteúdos profundos sem perder a referência visual do anúncio.</p>
                 </div>
 
                 <p>
-                    Em tutoriais extensos, como este que você está lendo, o uso de espaços em branco 
-                    e blocos de destaque (como o passo acima) ajudam o leitor a respirar. Observe como 
-                    o anúncio à esquerda permanece visível enquanto você rola o texto longo.
+                    Continue escrevendo seu tutorial aqui. O design foi pensado para ser 
+                    limpo, focando na tipografia e no espaçamento (white space).
                 </p>
 
-                <h2>Por que o anúncio à esquerda?</h2>
-                <p>
-                    Estudos de "Eye Tracking" mostram que o olhar humano tende a começar no canto superior 
-                    esquerdo. Posicionar um anúncio ou menu fixo aqui garante visibilidade constante 
-                    sem interromper o fluxo de leitura central.
+                 <p>
+                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                 </p>
 
                 <p>
-                    No mobile, o comportamento muda. O usuário quer o conteúdo logo após o título, 
-                    então o anúncio deve ser um banner horizontal curto que não ocupe toda a tela, 
-                    permitindo que o primeiro parágrafo do texto já seja visível.
+                    Continue escrevendo seu tutorial aqui. O design foi pensado para ser 
+                    limpo, focando na tipografia e no espaçamento (white space).
                 </p>
-                
-                <!-- Texto longo para testar o scroll -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>
+                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </p>
+                <!-- O scroll acontecerá naturalmente aqui -->
             </article>
         </div>
     </main>
