@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+     /* Container Principal */
+.company-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    gap: 40px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Área do Logo */
+.company-logo img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* Área de Dados */
+.company-info {
+    flex: 1;
+    color: #333;
+}
+
+.company-name {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #004a99; /* Exemplo de azul eboat */
+}
+
+.info-item {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.info-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .company-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .company-logo img {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="company-card">
+    <div class="company-logo">
+        <!-- Substituir o SRC pela lógica da imagem padrão caso necessário -->
+        <img src="logo-empresa.png" alt="Logo da Empresa" onerror="this.src='no-image.png';">
+    </div>
+    <div class="company-info">
+        <h1 class="company-name">Nome da Empresa</h1>
+        <p class="info-item"><strong>Endereço:</strong> Rua Exemplo, 123</p>
+        <p class="info-item"><strong>Localização:</strong> Cidade - Estado</p>
+        <p class="info-item"><strong>Telefone:</strong> (11) 99999-9999</p>
+        <p class="info-item"><strong>Site:</strong> <a href="#" target="_blank">www.empresa.com.br</a></p>
+    </div>
+</div>
+
+
+</body>
+</html> 

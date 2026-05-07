@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boat Sales</title>
+    <style>
+        /* --- Variáveis e Reset --- */
+        :root {
+            --eboat-blue: #0056b3;
+            --eboat-accent: #00d4ff;
+            --bg-card: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --line-width: 4px;
+            --gutter: 20px;
+            /* Espaço de respiro solicitado (ajustado para mobile) */
+        }
+
+        .eboat-timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 10px;
+            font-family: sans-serif;
+        }
+
+        /* --- Layout Base (Mobile First) --- */
+
+        /* Linha posicionada à esquerda no mobile */
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            width: var(--line-width);
+            height: 100%;
+            background: var(--eboat-blue);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            width: 100%;
+            padding-left: 45px;
+            /* Espaço para a linha + respiro */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 14px;
+            /* Centraliza na linha de 20px (20 - 6px de metade do dot) */
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background: var(--eboat-accent);
+            border: 3px solid var(--eboat-blue);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        .date {
+            display: block;
+            font-weight: bold;
+            color: var(--eboat-blue);
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .timeline-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* --- Layout Desktop (Telas > 768px) --- */
+
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .timeline-item {
+                width: 50%;
+                padding: 0;
+                margin-bottom: 50px;
+            }
+
+            /* Itens Ímpares (Esquerda) */
+            .timeline-item:nth-child(even) {
+                align-self: flex-start;
+                justify-content: flex-end;
+                padding-right: 34px;
+                /* Os 4px de respiro somados à metade da linha */
+            }
+
+            /* Itens Pares (Direita) */
+            .timeline-item:nth-child(odd) {
+                margin-left: 50%;
+                justify-content: flex-start;
+                padding-left: 34px;
+                /* Os 4px de respiro somados à metade da linha */
+            }
+
+            /* Ajuste dos Pontos no Desktop */
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: auto;
+                right: -10px;
+                /* Centralizado na linha central */
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot {
+                left: -10px;
+            }
+
+            /* Container precisa ser flex para as margens automáticas funcionarem */
+            .eboat-timeline-container {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="eboat-timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="date">Abril 2026</span>
+                <h3>Expansão Internacional</h3>
+                <p>Lançamento oficial das operações em marinas europeias e integração com novos meios de pagamento.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="date">Janeiro 2026</span>
+                <h3>Redesign de UI/UX</h3>
+                <p>Implementação do novo sistema de design focado em acessibilidade e navegação fluida.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item launch">
+            <div class="timeline-dot launch-dot"></div>
+            <div class="timeline-card">
+                <span class="date">Janeiro 2024</span>
+                <h3>O Início do Eboat</h3>
+                <p>Lançamento da plataforma beta com foco em aluguel de embarcações locais.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

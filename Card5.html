@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Boat Sales</title>
+        <style>
+           :root {
+                --primary-blue: #004a99;
+                --accent-gold: #c5a059;
+                --text-dark: #333;
+                --light-gray: #f4f4f4;
+                --white: #ffffff;
+            }
+
+            /* Container Grid */
+            .eboat-grid {
+                display: grid;
+                gap: 16px;
+                padding: 16px;
+                /* Mobile: 2 colunas por padrão */
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Desktop: 5 colunas (min-width: 1024px) */
+            @media (min-width: 1024px) {
+                .eboat-grid {
+                    grid-template-columns: repeat(5, 1fr);
+                }
+            }
+
+            /* Card Styling */
+            .boat-card {
+                background: var(--white);
+                border-radius: 12px;
+                height: 420px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: transform 0.3s ease;
+            }
+
+            .boat-card:hover {
+                transform: translateY(-5px);
+            }
+
+            /* Imagem Responsiva */
+            .image-container {
+                position: relative;
+                width: 100%;
+                height: 180px; /* Altura fixa definida para a imagem */
+                overflow: hidden;
+            }
+
+            .boat-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            /* Favoritos Overlay */
+            .btn-favorite {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: rgba(255,255,255,0.8);
+                border: none;
+                border-radius: 50%;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Conteúdo do Card */
+            .boat-info {
+                padding: 12px;
+                overflow: hidden;
+            }
+
+            .boat-title {
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* Limita a 2 linhas se o título for longo */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                height: 2.4em; /* Reserva espaço para 2 linhas */
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .boat-location {
+                font-size: 0.85rem;
+                color: #666;
+                margin-bottom: 4px;
+            }
+
+            .boat-year {
+                font-size: 0.8rem;
+                background: var(--light-gray);
+                padding: 2px 6px;
+                border-radius: 4px;
+            }
+
+            .boat-price {
+                font-size: 1.1rem;
+                font-weight: 800;
+                color: var(--primary-blue);
+                margin-top: 12px;
+            }
+
+            /* Rodapé e Botão */
+            .boat-footer {
+                padding: 12px;
+                border-top: 1px solid var(--light-gray);
+            }
+
+            .btn-view {
+                display: block;
+                text-align: center;
+                background: var(--primary-blue);
+                color: var(--white);
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 0.9rem;
+                transition: background 0.2s;
+            }
+
+            .btn-view:hover {
+                background: #003366;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="eboat-grid">
+            <article class="boat-card">
+                <div class="image-container">
+                    <img src="https://www.eboat.com.br/img/14349/14349-2025118-3363p.webp" alt="Nome do Barco" class="boat-img">
+                    <button class="btn-favorite" title="Adicionar aos favoritos">
+                        <span class="icon">❤</span>
+                    </button>
+                </div>
+                
+                <div class="boat-info">
+                    <h3 class="boat-title">Lancha Intermarine 42</h3>
+                    <p class="boat-location">📍 Angra dos Reis, RJ</p>
+                    <span class="boat-year">Ano: 2018</span>
+                    <div class="boat-price">R$ 1.200.000</div>
+                </div>
+
+                <div class="boat-footer">
+                    <a href="#" class="btn-view">Ver anúncio</a>
+                </div>
+            </article>
+
+            <article class="boat-card">
+                <div class="image-container">
+                    <img src="https://www.eboat.com.br/img/31953/31953-202633-907p.webp" alt="Nome do Barco" class="boat-img">
+                    <button class="btn-favorite" title="Adicionar aos favoritos">
+                        <span class="icon">❤</span>
+                    </button>
+                </div>
+                
+                <div class="boat-info">
+                    <h3 class="boat-title">Lancha Intermarine 42</h3>
+                    <p class="boat-location">📍 Angra dos Reis, RJ</p>
+                    <span class="boat-year">Ano: 2018</span>
+                    <div class="boat-price">R$ 1.200.000</div>
+                </div>
+
+                <div class="boat-footer">
+                    <a href="#" class="btn-view">Ver anúncio</a>
+                </div>
+            </article>
+
+            <article class="boat-card">
+                <div class="image-container">
+                    <img src="https://www.eboat.com.br/img/31915/31915-2026217-331p.webp" alt="Nome do Barco" class="boat-img">
+                    <button class="btn-favorite" title="Adicionar aos favoritos">
+                        <span class="icon">❤</span>
+                    </button>
+                </div>
+                
+                <div class="boat-info">
+                    <h3 class="boat-title">Lancha Intermarine 42</h3>
+                    <p class="boat-location">📍 Angra dos Reis, RJ</p>
+                    <span class="boat-year">Ano: 2018</span>
+                    <div class="boat-price">R$ 1.200.000</div>
+                </div>
+
+                <div class="boat-footer">
+                    <a href="#" class="btn-view">Ver anúncio</a>
+                </div>
+            </article>
+        </div>
+
+
+    </body>
+</html>

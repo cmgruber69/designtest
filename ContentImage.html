@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boat Sales</title>
+    <style>
+        /* --- ESTILO MOBILE (Padrão) --- */
+        .content-row {
+            display: flex;
+            flex-direction: column;
+            /* Empilhamento vertical */
+            gap: 16px;
+            margin-bottom: 32px;
+            width: 100%;
+        }
+
+        .content-image img {
+            width: 100%;
+            /* Ocupa a largura total da tela no mobile */
+            height: auto;
+            /* Altura automática preservando proporção */
+            display: block;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .content-text {
+            width: 100%;
+        }
+
+        .content-text p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* --- ESTILO DESKTOP (Aplicado apenas em telas maiores) --- */
+        @media (min-width: 768px) {
+            .content-row {
+                flex-direction: row;
+                /* Coloca lado a lado */
+                align-items: flex-start;
+                gap: 40px;
+            }
+
+            /* Controle de direção */
+            .content-row.reverse {
+                flex-direction: row-reverse;
+            }
+
+            /* Fixando a largura da imagem no Desktop */
+            .content-image {
+                flex: 0 0 250px;
+                /* Não estica, não encolhe, base fixa */
+            }
+
+            .content-image img {
+                width: 250px;
+                /* Largura fixa conforme solicitado */
+            }
+
+            .content-text {
+                flex: 1;
+                /* O texto ocupa o espaço restante */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Conteudo com imagem</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <section class="content-row">
+        <div class="content-image">
+            <img src="https://media.istockphoto.com/id/1278212179/de/foto/malerische-luftaufnahme-von-heterosexuellen-wanderungen-auf-rosa-salzsee.jpg?s=612x612&w=0&k=20&c=NNsDZJ7ae54J38UAXhlSJf2Eng_yKYNHOapSvx1m-_A="
+                alt="Descrição da Imagem">
+        </div>
+        <div class="content-text">
+            <h2>Título da Seção</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+    </section>
+
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+    <section class="content-row reverse">
+        <div class="content-image">
+            <img src="https://media.istockphoto.com/id/1772777335/de/foto/moraine-lake-trail.jpg?s=612x612&w=0&k=20&c=yAVeDHP8aG0oadjpYS_zWlJVXNjJ9ESfnXPZeJ8Yrd4="
+                alt="Descrição da Imagem">
+        </div>
+        <div class="content-text">
+            <h2>Outro Benefício</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+    </section>
+</body>
+
+</html>

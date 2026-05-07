@@ -1,0 +1,69 @@
+ <!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Page Title</title>
+
+<style>
+    /* Container Principal */
+.cg-footer-menu {
+    display: grid;
+    /* Mobile: 2 colunas de tamanho igual */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Espaçamento entre colunas e linhas */
+    align-items: start;
+}
+
+/* Colunas Individuais */
+.cg-footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espaçamento vertical entre os links */
+}
+
+.cg-footer-column a {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor da marca */
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+/* Desktop: Ajuste para 4 colunas */
+@media (min-width: 768px) {
+    .cg-footer-menu {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="cg-footer-menu" ><div class="cg-footer-column" >
+			<a href="/guia-de-barcos" >Guia de barcos</a>
+            <a href="/guia-de-motores" >Guia de motores</a>
+            <a href="/guia-de-empresas-nauticas" >Guia de empresas</a>
+            <a href="/mercado-nautico" >Dados de Mercado</a></div>
+
+        <div class="cg-footer-column" >
+			<a href="/preco-de-barco-usado" >Preço barco usado</a>
+            <a href="/preco-de-barco-novo" >Preço barco novo</a>
+            <a href="/meus-favoritos" >Meus favoritos</a>
+            <a href="/meus-alertas" >Meus alertas</a></div>
+
+        <div class="cg-footer-column" >
+			<a href="/indique-o-site" >Recomende</a>
+            <a href="/newsletter" >Newsletter</a>
+            <a href="/dicas-nauticas" >Dicas náuticas</a>
+            <a href="/glossario-nautico" >Glossário</a></div>
+
+        <div class="cg-footer-column" >
+			<a href="/login" >Fazer Login</a>
+            <a href="/registrar" >Fazer cadastro</a>
+            <a href="/faq" >Faq´s</a>
+            <a href="/contato" >Contato</a></div>
+</nav>
+
+
+</body>
+</html> 

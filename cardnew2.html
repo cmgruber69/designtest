@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+  /* Container Principal com Grid Responsivo */
+.eboat-grid-container {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  /* Desktop: 4 colunas */
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Tablet: 2 colunas */
+@media (max-width: 1024px) {
+  .eboat-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 coluna */
+@media (max-width: 600px) {
+  .eboat-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estilização do Card */
+.boat-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.boat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Proporção da Imagem 4:3 */
+.boat-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.boat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Área de Conteúdo */
+.boat-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Alinhamento à esquerda solicitado */
+}
+
+.boat-model {
+  font-size: 1.2rem;
+  color: #002d5e;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.boat-price {
+  font-size: 1.1rem;
+  color: #00a859; /* Destaque em cor diferente (Verde Sucesso/Valor) */
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.boat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+}
+
+.boat-condition {
+  font-size: 0.85rem;
+  color: #444;
+  margin: 0;
+}
+
+</style>
+</head>
+<body>
+
+<div class="eboat-grid-container">
+  <article class="boat-card">
+    <div class="boat-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1730101306331-2f27698b7ae1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYWlsYm9hdCUyMG9jZWFufGVufDF8fHx8MTc3NDAwNTIyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Modelo do Barco" class="boat-image">
+    </div>
+    
+    <div class="boat-info">
+      <h2 class="boat-model">Azimut 60</h2>
+      <p class="boat-price">R$ 4.500.000</p>
+      
+      <div class="boat-details">
+        <span>📍 Angra dos Reis, RJ</span>
+        <span>📅 Ano: 2022</span>
+        <span>📏 Tamanho: 60 pés</span>
+      </div>
+      
+      <hr class="divider">
+      
+      <p class="boat-condition">Estado: <strong>Seminovo</strong></p>
+    </div>
+  </article>
+
+   <article class="boat-card">
+    <div class="boat-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1678122878191-79b60410779f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodCUyMGx1eHVyeXxlbnwxfHx8fDE3NzQwMDUyMjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Modelo do Barco" class="boat-image">
+    </div>
+    
+    <div class="boat-info">
+      <h2 class="boat-model">Azimut 60</h2>
+      <p class="boat-price">R$ 4.500.000</p>
+      
+      <div class="boat-details">
+        <span>📍 Angra dos Reis, RJ</span>
+        <span>📅 Ano: 2022</span>
+        <span>📏 Tamanho: 60 pés</span>
+      </div>
+      
+      <hr class="divider">
+      
+      <p class="boat-condition">Estado: <strong>Seminovo</strong></p>
+    </div>
+  </article>
+
+   <article class="boat-card">
+    <div class="boat-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1737137234223-3e9f5824ef63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVlZGJvYXQlMjB3YXRlcnxlbnwxfHx8fDE3NzQwMDUyMjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral alt="Modelo do Barco" class="boat-image">
+    </div>
+    
+    <div class="boat-info">
+      <h2 class="boat-model">Azimut 60</h2>
+      <p class="boat-price">R$ 4.500.000</p>
+      
+      <div class="boat-details">
+        <span>📍 Angra dos Reis, RJ</span>
+        <span>📅 Ano: 2022</span>
+        <span>📏 Tamanho: 60 pés</span>
+      </div>
+      
+      <hr class="divider">
+      
+      <p class="boat-condition">Estado: <strong>Seminovo</strong></p>
+    </div>
+  </article>
+
+   <article class="boat-card">
+    <div class="boat-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1768175405393-1ee9cc76cef5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RvciUyMHlhY2h0JTIwbWFyaW5hfGVufDF8fHx8MTc3NDAwNTIyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Modelo do Barco" class="boat-image">
+    </div>
+    
+    <div class="boat-info">
+      <h2 class="boat-model">Azimut 60</h2>
+      <p class="boat-price">R$ 4.500.000</p>
+      
+      <div class="boat-details">
+        <span>📍 Angra dos Reis, RJ</span>
+        <span>📅 Ano: 2022</span>
+        <span>📏 Tamanho: 60 pés</span>
+      </div>
+      
+      <hr class="divider">
+      
+      <p class="boat-condition">Estado: <strong>Seminovo</strong></p>
+    </div>
+  </article>
+
+  </div>
+</body>
+</html>

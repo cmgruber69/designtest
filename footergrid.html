@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .site-footer {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 2rem 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+  
+  /* Mobile first: 1 coluna */
+  grid-template-columns: 1fr;
+}
+
+/* Conteúdo interno */
+.site-footer .footer-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #f9fafb;
+}
+
+.site-footer .footer-section p,
+.site-footer .footer-section li,
+.site-footer .footer-section a {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.site-footer a {
+  text-decoration: none;
+  color: #93c5fd;
+}
+
+.site-footer a:hover {
+  color: #bfdbfe;
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer li + li {
+  margin-top: 0.35rem;
+}
+
+/* Redes sociais em linha */
+.site-footer .socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+/* A partir de tablets: 2 colunas */
+@media (min-width: 640px) {
+  .site-footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* A partir de desktop médio: 4 colunas */
+@media (min-width: 1024px) {
+  .site-footer {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+</style>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+<footer class="site-footer">
+  <div class="footer-section">
+    <h4>Sobre</h4>
+    <p>Texto curto sobre o site, missão, etc.</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>Links úteis</h4>
+    <ul>
+      <li><a href="#">Anúncios</a></li>
+      <li><a href="#">Planos</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-section">
+    <h4>Contato</h4>
+    <p>Email: contato@site.com</p>
+    <p>Telefone: (11) 99999-9999</p>
+  </div>
+
+  <div class="footer-section">
+    <h4>Redes sociais</h4>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html> 

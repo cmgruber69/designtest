@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* Container - Mantemos o Grid anterior */
+.eb-tips-container {
+  display: grid;
+  gap: 24px;
+  padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .eb-tips-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card com altura total fixa ou mínima */
+.eb-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Faz todos os cards da linha terem a mesma altura no Grid */
+}
+
+/* IMAGEM COM ALTURA FIXA E PROPORÇÃO */
+.eb-card-image-wrapper {
+  width: 100%;
+  max-height: 300px; /* Definimos uma altura fixa para evitar o shift */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #f0f4f8; 
+}
+
+.eb-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  object-position: center bottom;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* CONTEÚDO COM TRUNCAMENTO */
+.eb-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Ocupa o espaço restante uniformemente */
+}
+
+.eb-card:hover .eb-card-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.eb-card-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #002d58;
+  /* Truncamento para 2 linhas no título */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.4em; /* Reserva espaço para 2 linhas mesmo que tenha 1 */
+}
+
+.eb-card-description {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 15px;
+  /* Truncamento para 3 linhas na descrição */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.6em; /* Mantém a altura constante */
+}
+
+</style>
+</head>
+<body>
+
+<section class="eb-tips-container">
+  <article class="eb-card">
+    <div class="eb-card-image-wrapper">
+      <img src="https://www.eboat.com.br/img/30026/30026-2025118-9278.webp" alt="Dica Náutica" loading="lazy">
+    </div>
+    <div class="eb-card-content">
+      <h3 class="eb-card-title">Como Planejar sua Primeira Travessia</h3>
+      <p class="eb-card-description">Descubra os itens essenciais para uma navegação segura em mar aberto...</p>
+      <a href="#" class="eb-card-link">Ler mais</a>
+    </div>
+  </article>
+
+  <article class="eb-card">
+    <div class="eb-card-image-wrapper">
+      <img src="https://www.eboat.com.br/img/30026/30026-2025118-6376.webp" alt="Dica Náutica" loading="lazy">
+    </div>
+    <div class="eb-card-content">
+      <h3 class="eb-card-title">Como Planejar sua Primeira Travessia</h3>
+      <p class="eb-card-description">Descubra os itens essenciais para uma navegação segura em mar aberto...</p>
+      <a href="#" class="eb-card-link">Ler mais</a>
+    </div>
+  </article>
+
+  <article class="eb-card">
+    <div class="eb-card-image-wrapper">
+      <img src="https://www.eboat.com.br/img/30026/30026-2025118-9278.webp" alt="Dica Náutica" loading="lazy">
+    </div>
+    <div class="eb-card-content">
+      <h3 class="eb-card-title">Como Planejar sua Primeira Travessia</h3>
+      <p class="eb-card-description">Descubra os itens essenciais para uma navegação segura em mar aberto...</p>
+      <a href="#" class="eb-card-link">Ler mais</a>
+    </div>
+  </article>
+
+  <article class="eb-card">
+    <div class="eb-card-image-wrapper">
+      <img src="https://www.eboat.com.br/img/30026/30026-2025118-6376.webp" alt="Dica Náutica" loading="lazy">
+    </div>
+    <div class="eb-card-content">
+      <h3 class="eb-card-title">Como Planejar sua Primeira Travessia</h3>
+      <p class="eb-card-description">Descubra os itens essenciais para uma navegação segura em mar aberto...</p>
+      <a href="#" class="eb-card-link">Ler mais</a>
+    </div>
+  </article>
+
+  <article class="eb-card">
+    <div class="eb-card-image-wrapper">
+      <img src="https://www.eboat.com.br/img/30026/30026-2025118-9278.webp" alt="Dica Náutica" loading="lazy">
+    </div>
+    <div class="eb-card-content">
+      <h3 class="eb-card-title">Como Planejar sua Primeira Travessia</h3>
+      <p class="eb-card-description">Descubra os itens essenciais para uma navegação segura em mar aberto...</p>
+      <a href="#" class="eb-card-link">Ler mais</a>
+    </div>
+  </article>
+
+  <article class="eb-card">
+    <div class="eb-card-image-wrapper">
+      <img src="https://www.eboat.com.br/img/30026/30026-2025118-6376.webp" alt="Dica Náutica" loading="lazy">
+    </div>
+    <div class="eb-card-content">
+      <h3 class="eb-card-title">Como Planejar sua Primeira Travessia</h3>
+      <p class="eb-card-description">Descubra os itens essenciais para uma navegação segura em mar aberto...</p>
+      <a href="#" class="eb-card-link">Ler mais</a>
+    </div>
+  </article>
+  
+  </section>
+
+</body>
+</html> 

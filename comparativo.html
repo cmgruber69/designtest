@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparativo de Barcos - eboat</title>
+    
+    <style>
+        /* style.css */
+:root {
+    --primary-blue: #003366;
+    --accent-gold: #D4AF37;
+    --bg-light: #F4F7F9;
+    --text-dark: #333;
+    --white: #ffffff;
+    --gray-placeholder: #e0e6ed; /* Cor para o placeholder */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+}
+
+.compare-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.compare-grid {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.boat-card {
+    flex: 1;
+    background: var(--white);
+    border-radius: 12px;
+    /* overflow: hidden; -> Removido para o highlight não ser cortado */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid transparent; /* Evita pulo no hover do highlight */
+}
+
+.boat-card.highlight {
+    border: 2px solid var(--accent-gold);
+    transform: scale(1.02);
+    z-index: 1; /* Garante que fique sobre os outros no scale */
+}
+
+/* --- NOVO: Reserva de Espaço para Imagem --- */
+.boat-header {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden; /* Garante o border-radius nas imagens/placeholders */
+}
+
+.boat-img-container {
+    width: 100%;
+    /* Define a proporção 16:9 para a imagem. 
+       Isso reserva o espaço vertical antes da imagem carregar. */
+    aspect-ratio: 16 / 9; 
+    background-color: var(--gray-placeholder); /* Cor de fundo caso não tenha imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fallback: Um ícone simples ou texto via CSS caso a imagem não exista na tag */
+.boat-img-container::before {
+    content: "eboat"; /* Ou um ícone placeholder */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(0,0,0,0.15);
+    position: absolute;
+}
+
+.boat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    /* Garante que se a imagem falhar, ela não mostre o ícone de "quebrado" feio */
+    opacity: 1; 
+    transition: opacity 0.3s;
+}
+
+/* Se a imagem falhar, podemos tentar escondê-la para mostrar apenas o background do container.
+   Isso é difícil só com CSS, mas a propriedade `object-fit` e o `aspect-ratio` 
+   já resolvem o problema do layout shift. O contêiner SEMPRE terá o tamanho correto. */
+/* ------------------------------------------- */
+
+.boat-name {
+    padding: 15px;
+    margin: 0;
+    background: var(--primary-blue);
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.boat-specs {
+    border-radius: 0 0 12px 12px;
+}
+
+.spec-row {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-row:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.compare-labels {
+    flex: 0 0 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label-spacer { 
+    /* Ajuste do spacer para alinhar com a nova altura da imagem + nome */
+    aspect-ratio: 16 / 9; /* Mesma proporção da imagem */
+    margin-bottom: 53px; /* Aproximadamente a altura do .boat-name + paddings */
+} 
+
+.label-item {
+    padding: 12px 0;
+    font-weight: bold;
+    color: var(--primary-blue);
+    border-bottom: 1px solid transparent; /* Alinhamento */
+    height: 1.2rem; /* Altura fixa para alinhar com as spec-rows */
+    display: flex;
+    align-items: center;
+}
+
+.mobile-label {
+    display: none; /* Escondido no Desktop */
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-right: 5px;
+}
+
+/* RESPONSIVIDADE (MOBILE) */
+@media (max-width: 768px) {
+    .compare-grid {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .compare-labels {
+        display: none; /* Remove a coluna lateral de labels */
+    }
+
+    .boat-card {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        transform: none !important; /* Remove scale no mobile */
+    }
+
+    .boat-card.highlight {
+        border: 2px solid var(--accent-gold);
+    }
+
+    .mobile-label {
+        display: inline-block;
+    }
+
+    .spec-row {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+    </style>
+</head>
+<body>
+
+<section class="compare-container">
+    <h2 class="section-title">Comparativo de Embarcações</h2>
+    
+    <div class="compare-grid">
+        <!-- Item de Referência (Labels) - Oculto no Mobile para ganho de espaço -->
+        <div class="compare-labels">
+            <div class="label-spacer"></div>
+            <div class="label-item">Comprimento</div>
+            <div class="label-item">Largura (Boca)</div>
+            <div class="label-item">Calado</div>
+            <div class="label-item">Tripulantes (Dia)</div>
+            <div class="label-item">Pernoite</div>
+            <div class="label-item">Tanque Combustível</div>
+            <div class="label-item">Tanque Água</div>
+        </div>
+
+        <!-- Barco 1 -->
+        <article class="boat-card">
+            <div class="boat-header">
+                <div class="boat-img-container">
+                    <img src="https://www.eboat.com.br/img/31605/31605-202646-257.webp" alt="Barco 1" class="boat-img">
+                </div>
+                <h3 class="boat-name">Azimut 60</h3>
+            </div>
+            <div class="boat-specs">
+                <div class="spec-row"><span class="mobile-label">Comprimento:</span> 18.3m</div>
+                <div class="spec-row"><span class="mobile-label">Largura:</span> 5.0m</div>
+                <div class="spec-row"><span class="mobile-label">Calado:</span> 1.4m</div>
+                <div class="spec-row"><span class="mobile-label">Dia:</span> 12 pessoas</div>
+                <div class="spec-row"><span class="mobile-label">Pernoite:</span> 6 pessoas</div>
+                <div class="spec-row"><span class="mobile-label">Combustível:</span> 2800L</div>
+                <div class="spec-row"><span class="mobile-label">Água:</span> 750L</div>
+            </div>
+        </article>
+
+        <!-- Barco 2 -->
+        <article class="boat-card highlight">
+            <div class="boat-header">
+                <div class="boat-img-container">
+                    <!-- <img src="https://www.eboat.com.br/img/31993/31993-2026312-925.webp" alt="Barco 2" class="boat-img">-->
+                </div>
+                <h3 class="boat-name">Intermarine 62</h3>
+            </div>
+            <div class="boat-specs">
+                <div class="spec-row"><span class="mobile-label">Comprimento:</span> 18.9m</div>
+                <div class="spec-row"><span class="mobile-label">Largura:</span> 5.1m</div>
+                <div class="spec-row"><span class="mobile-label">Calado:</span> 1.5m</div>
+                <div class="spec-row"><span class="mobile-label">Dia:</span> 14 pessoas</div>
+                <div class="spec-row"><span class="mobile-label">Pernoite:</span> 6 pessoas</div>
+                <div class="spec-row"><span class="mobile-label">Combustível:</span> 3000L</div>
+                <div class="spec-row"><span class="mobile-label">Água:</span> 800L</div>
+            </div>
+        </article>
+
+        <!-- Barco 3 -->
+        <article class="boat-card">
+            <div class="boat-header">
+                <div class="boat-img-container">
+                    <img src="https://www.eboat.com.br/img/14349/14349-2025118-3363.webp" alt="Barco 3" class="boat-img">
+                </div>
+                <h3 class="boat-name">Schaefer 580</h3>
+            </div>
+            <div class="boat-specs">
+                <div class="spec-row"><span class="mobile-label">Comprimento:</span> 17.6m</div>
+                <div class="spec-row"><span class="mobile-label">Largura:</span> 4.9m</div>
+                <div class="spec-row"><span class="mobile-label">Calado:</span> 1.3m</div>
+                <div class="spec-row"><span class="mobile-label">Dia:</span> 12 pessoas</div>
+                <div class="spec-row"><span class="mobile-label">Pernoite:</span> 6 pessoas</div>
+                <div class="spec-row"><span class="mobile-label">Combustível:</span> 2500L</div>
+                <div class="spec-row"><span class="mobile-label">Água:</span> 700L</div>
+            </div>
+        </article>
+    </div>
+</section>
+
+</body>
+</html>

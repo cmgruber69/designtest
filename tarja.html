@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+  /* Container do Card (Exemplo) */
+  .boat-card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Estilo Base da Tarja */
+  .badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 250px;
+    padding: 8px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+
+  /* Variação: Finalizado (Vermelho balanceado) */
+  .status-finalizado {
+    background-color: #D32F2F; /* Vermelho vibrante mas profissional */
+  }
+
+  /* Variação: Vendido (Verde eboat) */
+  .status-vendido {
+    background-color: #2E7D32; /* Verde esmeralda escuro para melhor leitura */
+  }
+</style>
+</head>
+<body>
+
+<div class="boat-card">
+    <div class="badge status-finalizado">Anúncio Finalizado</div>
+    <img src="https://via.placeholder.com/300x200?text=Imagem+do+Barco" alt="Barco">
+  </div>
+
+  <br>
+
+  <div class="boat-card">
+    <div class="badge status-vendido">Vendido</div>
+    <img src="https://via.placeholder.com/300x200?text=Imagem+do+Barco" alt="Barco">
+  </div>
+
+</body>
+</html>
