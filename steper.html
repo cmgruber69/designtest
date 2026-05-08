@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --primary-color: #0056b3; /* Cor representativa eboat */
+            --bg-inactive: #e0e0e0;
+            --text-main: #333;
+            --step-size: 35px;
+        }
+
+        .stepper-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        /* Linha de fundo (Barra de Progresso) */
+        .stepper-container::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background-color: var(--bg-inactive);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* Progresso Ativo */
+        .progress-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            width: 50%; /* Controle dinâmico da evolução */
+            background-color: var(--primary-color);
+            transform: translateY(-50%);
+            z-index: 2;
+            transition: width 0.4s ease;
+        }
+
+        .step {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .circle {
+            width: var(--step-size);
+            height: var(--step-size);
+            border-radius: 50%;
+            background-color: #fff;
+            border: 3px solid var(--bg-inactive);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--bg-inactive);
+            transition: all 0.3s ease;
+        }
+
+        .step.active .circle {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .step.completed .circle {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .label {
+            position: absolute;
+            top: 45px;
+            white-space: nowrap;
+            font-family: sans-serif;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+<div class="stepper-container">
+    <div class="progress-line"></div>
+    
+    <!-- Passo 1 -->
+    <div class="step completed">
+        <div class="circle">✓</div>
+        <div class="label">Identificação</div>
+    </div>
+
+    <!-- Passo 2 -->
+    <div class="step active">
+        <div class="circle">2</div>
+        <div class="label">Reserva</div>
+    </div>
+
+    <!-- Passo 3 -->
+    <div class="step">
+        <div class="circle">3</div>
+        <div class="label">Pagamento</div>
+    </div>
+</div>
+
+</body>
+</html>
